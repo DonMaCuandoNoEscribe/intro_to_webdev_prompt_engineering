@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analítica de Voleibol — Preguntas que importan</title>
+    <link rel="stylesheet" href="volleyball-analytics-styles.css">
+  <meta name="description" content="Tablero interactivo de analítica de voleibol con visualizaciones y métricas clave.">
+  <meta property="og:title" content="Preguntas - Analytics de Voleibol">
+  <meta property="og:description" content="Visualizaciones y métricas clave para análisis de voleibol.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_ES">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+Pro:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="main-header">
+  <nav class="main-nav">
+    <div class="nav-brand">
+      <h1>La estadistica en el voleibol</h1>
+    </div>
+            <ul class="nav-links">
+                <li><a href="volleyball-analytics-home.html">Inicio</a></li>
+                <li><a href="analytics-questions.html" class="active">Investigacion</a></li>
+                <li><a href="reflection.html">Reflexión</a></li>
+            </ul>
+  </nav>
+</header>
+
+<main class="main-content">
+  <header class="page-header">
+    <div class="container">
+      <h2>Analítica de Voleibol — Preguntas que importan</h2>
+      <p class="subtitle">Un tablero atractivo con visualizaciones clave para responder las preguntas del analista.</p>
+    </div>
+  </header>
+
+  <div class="grid">
+  <!-- ===== KPI CARDS ===== -->
+  <section class="panel">
+    <h2>Estado del equipo (últimos N sets)</h2>
+    <div class="kpis" id="kpiRow" aria-live="polite"></div>
+    <aside class="explain" aria-label="Explicación: Estado del equipo">
+      <h3>Cómo usarlo</h3>
+      <p>Sirve para obtener una vista panorámica rápida del estado actual del equipo: si está recibiendo bien, si anota cuando saca, o si está cometiendo demasiados errores.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>SO% alto → el equipo gana más puntos cuando recibe (buena recepción + ataque).</li>
+        <li>PS% alto → el equipo presiona bien con el saque.</li>
+        <li>Eficiencia de ataque baja → problemas de definición o coordinación con el armador.</li>
+        <li>Bloq/set alto → defensa efectiva en la red.</li>
+        <li>Error de saque alto → riesgo innecesario o mala gestión del saque.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== ROTATION HEATMAPS ===== -->
+  <section class="panel two-col">
+    <div>
+      <div class="panel-head">
+        <h2>Eficiencia por rotación (R1–R6)</h2>
+        <div class="tabs">
+          <button class="tab active" data-rot-mode="so">Side-Out%</button>
+          <button class="tab" data-rot-mode="ps">Puntos al saque%</button>
+        </div>
+      </div>
+      <div class="heatmaps">
+        <div class="heatmap" id="rotationHeatmap" aria-label="Heatmap de eficiencia por rotación"></div>
+      </div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Eficiencia por rotación">
+      <p>Compara el rendimiento del equipo en cada rotación del sistema 5-1.</p>
+      <h3>Cómo usarlo</h3>
+      <p>Ayuda a identificar en qué rotaciones el equipo gana o pierde más puntos. Sirve para planificar cambios de jugadoras, ajustes de recepción o estrategias de ataque según la posición del armador.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Rotaciones verdes (eficientes) → buena combinación de armador y atacantes.</li>
+        <li>Rotaciones rojas (ineficientes) → problemas de recepción o de construcción ofensiva.</li>
+        <li>Permite asociar el éxito de cada rotación con quién está en primera o segunda línea.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== SERVE TARGETING (OPP) ===== -->
+  <section class="panel two-col">
+    <div>
+      <h2>Objetivo de saque al rival (zonas 1–6)</h2>
+      <div id="serveTargetHeatmap" class="heatmap" aria-label="Mapa de calor de destino de saques"></div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Objetivo de saque al rival">
+      <p>Indica a qué zonas de la cancha rival se dirigen los saques y con qué frecuencia.</p>
+      <h3>Cómo usarlo</h3>
+      <p>Permite verificar si el plan de saque se está cumpliendo y ajustar las zonas objetivo para incomodar la recepción contraria.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Zonas con alto porcentaje → el equipo concentra allí sus saques.</li>
+        <li>Si una zona recibe mucho y sigue recibiendo bien, conviene cambiar el objetivo.</li>
+        <li>Si una zona tiene mala recepción, reforzar los saques dirigidos a ella.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== RECEIVE QUALITY ===== -->
+  <section class="panel two-col">
+    <div>
+      <h2>Nuestra recepción por zona (promedio 0–3)</h2>
+      <div id="receiveQualityBars" class="chart" aria-label="Barras de calidad de recepción"></div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Recepción por zona">
+      <p>Evalúa la calidad promedio de recepción en cada zona del campo (0 = mala, 3 = perfecta).</p>
+      <h3>Cómo usarlo</h3>
+      <p>Identifica qué zonas o jugadoras están recibiendo mejor o peor para reorganizar la formación o enfocar el entrenamiento.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Promedios altos → estabilidad y variedad en el ataque posterior.</li>
+        <li>Promedios bajos → vulnerabilidades en la línea de recepción o mala comunicación.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== SETTER DISTRIBUTION ===== -->
+  <section class="panel two-col">
+    <div>
+      <h2>Distribución del armador por atacante</h2>
+      <div id="setterDistribution" class="chart" aria-label="Barras apiladas por atacante y rotación"></div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Distribución del armador">
+      <p>Muestra a qué atacante el armador da más balones en cada rotación.</p>
+      <h3>Cómo usarlo</h3>
+      <p>Permite analizar si el juego ofensivo es equilibrado o si hay dependencia de una jugadora.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Reparto balanceado → el equipo es menos predecible.</li>
+        <li>Exceso hacia una atacante → puede indicar confianza, pero también previsibilidad o debilidad en otras opciones.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== ATTACK EFFICIENCY ===== -->
+  <section class="panel two-col">
+    <div>
+      <h2>Eficiencia de ataque por zona</h2>
+      <div id="attackEfficiencyBars" class="chart" aria-label="Barras de eficiencia por zona"></div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Eficiencia de ataque">
+      <p>Refleja la efectividad de los ataques según su origen en la cancha (izquierda, centro, derecha, pipe, etc.).</p>
+      <h3>Cómo usarlo</h3>
+      <p>Ayuda a entender desde qué zonas el equipo anota más y dónde pierde puntos.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Porcentajes altos → zonas o jugadoras con buena sincronización y lectura del bloqueo.</li>
+        <li>Porcentajes bajos → puntos de mejora técnica o de toma de decisión en la construcción del ataque.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== MOMENTUM (RUNS) ===== -->
+  <section class="panel two-col">
+    <div>
+      <h2>Rachas de puntos (momentum)</h2>
+      <div id="runLengthHist" class="chart" aria-label="Histograma de rachas de puntos mientras servimos"></div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Rachas de puntos">
+      <p>Muestra con qué frecuencia el equipo encadena secuencias de puntos consecutivos.</p>
+      <h3>Cómo usarlo</h3>
+      <p>Orienta cuándo pedir tiempo o realizar cambios para cortar o aprovechar las rachas.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Muchas rachas cortas → equipo inestable o rival fuerte.</li>
+        <li>Rachas largas → dominio del ritmo del partido y buena concentración.</li>
+        <li>Sirve también para estudiar qué rotaciones generan más impulso positivo o negativo.</li>
+      </ul>
+    </aside>
+  </section>
+
+  <!-- ===== PLAYER IMPACT ===== -->
+  <section class="panel two-col">
+    <div>
+      <h2>Impacto por jugadora (On/Off ±)</h2>
+      <div id="onOffBars" class="chart" aria-label="Impacto neto por jugadora"></div>
+    </div>
+    <aside class="explain" aria-label="Explicación: Impacto por jugadora">
+      <p>Mide la diferencia de puntos que obtiene o recibe el equipo con una jugadora en cancha comparado con cuando no está, calculado por cada 100 rallies.</p>
+      <h3>Cómo usarlo</h3>
+      <p>Ayuda a entender el impacto real de cada jugadora en el resultado global, más allá de sus estadísticas individuales.</p>
+      <h3>Interpretación</h3>
+      <ul>
+        <li>Valor positivo → el equipo rinde mejor cuando la jugadora está en cancha.</li>
+        <li>Valor negativo → el equipo pierde más puntos o sufre más errores con ella en juego.</li>
+      </ul>
+      <p>Es útil para decisiones tácticas de cambio o cierre de sets.</p>
+    </aside>
+  </section>
+
+  <!-- ===== QUESTIONS LIST ===== -->
+  <section class="panel">
+    <h2>Guía de preguntas del analista</h2>
+    <ul class="q-list">
+      <li>¿En qué rotaciones tenemos mayor SO% y por qué?</li>
+      <li>¿Qué patrón de saque reduce más las recepciones 3.0 del rival?</li>
+      <li>¿Qué zonas nos dan mejor eficiencia de ataque y cómo varía por rotación?</li>
+      <li>¿Cómo cambia la distribución del armador según la calidad de recepción?</li>
+      <li>¿Qué jugadoras maximizan el ± y con qué combinaciones de primera línea?</li>
+      <li>¿Cuándo aparecen rachas del rival y cuál es el trigger de timeout óptimo?</li>
+    </ul>
+  </section>
+  </div>
+</main>
+
+<footer class="main-footer">
+  <div class="container">
+    <p>PIEGP Santa Maria de los Andes | Educación para el Trabajo | Módulo 1: Introducción al Desarrollo Web y Prompt Engineering</p>
+  </div>
+</footer>
+
+<script src="chart.js"></script>
+</body>
+</html>
