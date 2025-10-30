@@ -36,9 +36,9 @@
    }
  }
  
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
+ *{box-sizing:border-box}
+ html{scroll-behavior:smooth; scroll-padding-top:5rem}
+ body{
     margin:0;
     background:radial-gradient(1200px 800px at 10% -10%, #0a1b2f 0%, transparent 40%), var(--bg);
     color:var(--fg);
@@ -148,13 +148,16 @@
   .muted{color:var(--muted)}
   .small{font-size:.95rem}
   .list{margin:.2rem 0 .2rem 1rem}
+  .tight{margin:.2rem 0 .2rem 1rem; line-height:1.5}
+  .tight li{margin-bottom:.25rem}
  
   /* =====================
      BENTO CARDS
      ===================== */
- 
+
+  .bento{margin-bottom:1rem}
   .bento__head{margin-bottom:.75rem}
-  .bento__grid{display:grid; gap:clamp(.8rem,1.8vw,1.2rem); grid-template-columns:1fr}
+  .bento__grid{display:grid; gap:clamp(.8rem,1.8vw,1.2rem); grid-template-columns:1fr; margin-bottom:.8rem}
   @media (max-width:980px){ .bento__grid{grid-template-columns:1fr} }
  
   /* ===== DECK (ANKI EXPANDED) ===== */
@@ -189,6 +192,7 @@
   .anki[open] > summary::after{content:"\2190\00A0Ver pregunta"}
   .anki[open] > summary > *{display:none}
   .anki[open] > summary:hover{color:var(--fg); text-decoration:underline}
+  .anki summary:focus-visible{outline:2px solid var(--pri); outline-offset:4px}
   .grade{
     display:grid; grid-template-columns:repeat(4,1fr); gap:.35rem; margin-top:.4rem;
   }
@@ -244,10 +248,10 @@
    border-radius:12px; border:1px dashed var(--border);
    background:
      repeating-linear-gradient(180deg, transparent 0 44px, rgba(255,255,255,.04) 44px 45px);
-   padding:.25rem;
+   padding:0;
   }
   .block{
-   position:absolute; left:.35rem; right:.35rem;
+   position:absolute; left:.5rem; right:.5rem;
    border-radius:10px; background:rgba(63,185,80,.16);
    border:1px solid rgba(63,185,80,.32);
    padding:.45rem .6rem; font-size:.9rem; box-shadow:var(--shadow);
@@ -266,14 +270,14 @@
   .t0815{ top: calc(3.25 * var(--h)); }
   .t1000{ top: calc(5 * var(--h)); }
   .t1200{ top: calc(7 * var(--h)); }
-  .t1300{ top: calc(8 * var(--h)); }
+  .t1300{ top: calc(5 * var(--h)); }
   .t1330{ top: calc(8.5 * var(--h)); }
   .t1400{ top: calc(9 * var(--h)); }
   .t1515{ top: calc(10.25 * var(--h)); }
   .t1530{ top: calc(10.5 * var(--h)); }
   .t1630{ top: calc(11.5 * var(--h)); }
   .t1645{ top: calc(11.75 * var(--h)); }
-  .t1700{ top: calc(12 * var(--h)); }
+  .t1700{ top: calc(8 * var(--h)); }
   /* Simplified 9–17 mapping overrides */
   .t0900{ top: 0; }
   .t1200{ top: calc(3 * var(--h)); }
@@ -300,7 +304,7 @@
    position:absolute; inset:1rem 1rem auto auto; margin:0; padding:0;
    list-style:none; display:grid; gap:calc(var(--h) - 2px);
    height:352px; width:max-content; color:var(--muted); font-size:.85rem;
-   transform:translateY(2.1rem); /* align with lane grid */
+   transform:translateY(0); /* aligned with blocks */
   }
  
   /* ===== STEPS / RING ===== */

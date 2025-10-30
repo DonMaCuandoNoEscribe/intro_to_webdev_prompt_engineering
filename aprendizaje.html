@@ -318,6 +318,8 @@
 
         </header>
 
+        <div class="bento__grid">
+
         <div class="board">
 
           <!-- Simplified schedule: 3 days, 9–17 -->
@@ -330,7 +332,7 @@
 
               <div class="block t0900 t1200 deep">Deep Work</div>
 
-              <div class="block t1300 t1700">Proyecto / Revisión</div>
+              <div class="block t1300 t1700">Revisión / Aprender</div>
 
             </div>
 
@@ -402,6 +404,8 @@
 
         </p>
 
+        </div>
+
       </article>
 
       <!-- 2.3 PBL -->
@@ -415,6 +419,8 @@
           <p class="muted">En este curso, aprendemos creando — tu propia web con apoyo de IA.</p>
 
         </header>
+
+        <div class="bento__grid">
 
         <div class="card">
 
@@ -492,7 +498,9 @@
 
         </div>
 
-        <p class="callout"><strong>Insight accionable:</strong> No aprendas “cómo se hace” una web: haz una web que diga quién eres.</p>
+        <p class="callout"><strong>Insight accionable:</strong> No aprendas "cómo se hace" una web: haz una web que diga quién eres.</p>
+
+        </div>
 
       </article>
 
@@ -668,11 +676,13 @@
 
     <div class="shell">
 
-      <small>Referencias: PubMed • Docs de Anki • Cal Newport • PMC • © <span id="y">2025</span></small>
+      <small>Referencias: PubMed • Docs de Anki • Cal Newport • PMC • © <span id="y"></span></small>
 
     </div>
 
   </footer>
+
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
 </body>
 
