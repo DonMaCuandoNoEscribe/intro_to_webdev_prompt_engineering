@@ -3,233 +3,497 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>José Pérez - Portfolio Profesional</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="plan-1ano-professional.css">
+    <title>Introducción al Desarrollo Web y Prompt Engineering</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: #f8f9fa;
+            color: #212529;
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .nav-bar {
+            background: #ffffff;
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .nav-subtitle {
+            font-size: 0.9rem;
+            color: #6c757d;
+            font-weight: 400;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        header {
+            padding: 4rem 0;
+            border-bottom: 1px solid #e9ecef;
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #212529;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: #495057;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        .instructor {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-top: 1.5rem;
+        }
+
+        .info-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .info-section h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-item {
+            border-left: 3px solid #0066cc;
+            padding-left: 1rem;
+        }
+
+        .info-label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.25rem;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 1rem;
+            color: #212529;
+            font-weight: 500;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .primary-section {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .primary-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .description {
+            color: #495057;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        .resources-list {
+            list-style: none;
+        }
+
+        .resources-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .resources-list li:last-child {
+            border-bottom: none;
+        }
+
+        .resource-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-decoration: none;
+            color: #212529;
+            transition: color 0.2s ease;
+        }
+
+        .resource-link:hover {
+            color: #0066cc;
+        }
+
+        .resource-link:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        .resource-title {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .resource-desc {
+            font-size: 0.9rem;
+            color: #6c757d;
+            margin-top: 0.25rem;
+        }
+
+        .arrow {
+            color: #0066cc;
+            transition: transform 0.2s ease;
+            font-size: 1.2rem;
+        }
+
+        .disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .disabled:hover {
+            color: #212529;
+        }
+
+        .disabled .arrow {
+            transform: none !important;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: #ffffff;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .sidebar-section h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .timeline {
+            list-style: none;
+        }
+
+        .timeline li {
+            padding: 0.75rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid #e9ecef;
+            position: relative;
+            font-size: 0.95rem;
+            color: #495057;
+        }
+
+        .timeline li::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 1rem;
+            width: 8px;
+            height: 8px;
+            background: #0066cc;
+            border-radius: 50%;
+        }
+
+        .timeline strong {
+            color: #212529;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .projects-section {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            border: 1px solid #e9ecef;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        .projects-section h2 {
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+            color: #212529;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            padding: 1.5rem;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            background: #f8f9fa;
+        }
+
+        .project-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: #212529;
+            font-weight: 600;
+        }
+
+        .project-card .project-name {
+            color: #0066cc;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .project-card p {
+            font-size: 0.9rem;
+            color: #495057;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 968px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <nav>
-            <div class="nav-brand">Demo proyecto final: José Pérez</div>
-            <ul class="nav-menu">
-                <li><a href="index.html"class="active">Introducción personal</a></li>
-                <li><a href="carreras.html">Mis Carreras</a></li>
-                <li><a href="plan-1ano.html">Plan 1 Año</a></li>
-                <li><a href="plan-5anos.html">Plan 5 Años</a></li>
-                <li><a href="plan-10anos.html">Metas a 10 Años</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <!-- Main Content -->
-    <main>
-        <!-- Hero Section -->
-        <section class="hero-professional">
-            <div class="container">
-                <h1 class="hero-title">Jose Pérez</h1>
-                <p class="hero-subtitle"><span class="accent-text">Ciencia de Datos</span> | <span class="accent-text">Emprendedor</span> | <span class="accent-text">Educador</span></p>
-                <p class="hero-subtitle">Definiendo mi propio camino atraves de la tecnología, educacion, y deporte</p>
+    <nav class="nav-bar">
+        <div class="nav-container">
+            <div>
+                <div class="nav-title">Educación para el Trabajo</div>
+                <div class="nav-subtitle">Módulo 1: Desarrollo Web & Prompt Engineering</div>
             </div>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Introduction Section -->
-        <section class="introduction">
-            <h2 class="section-title-professional">¿Quién Soy Yo?</h2>
-            <div class="container">
-                <p class="section-intro-professional" style="text-align: center; max-width: 800px; margin: 0 auto;">
-                    Soy un profesional multifacético con una pasión profunda por el aprendizaje continuo y la innovación. 
-                    Actualmente me encuentro cursando una maestría en Ciencia de Datos mientras desarrollo mi carrera 
-                    como emprendedor y educador.
+    <div class="container">
+        <header>
+            <h1>Introducción al Desarrollo Web y Prompt Engineering</h1>
+            <p class="subtitle">Un curso sobre el desarrollo web y el uso eficiente de la inteligencia artificial</p>
+            <p class="instructor">Profesor: Jose A. Perez Ortiz</p>
+        </header>
+
+        <div class="info-section">
+            <h2>Información del Curso</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Duración</div>
+                    <div class="info-value">8 semanas</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Modalidad</div>
+                    <div class="info-value">Presencial</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Nivel</div>
+                    <div class="info-value">Secundaria</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Horario</div>
+                    <div class="info-value">2 horas/semana</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="primary-section">
+                <h2>Recursos del Curso</h2>
+                <p class="description">
+                    Accede a los materiales principales del curso. El syllabus contiene información detallada sobre objetivos, contenidos semanales, criterios de evaluación y metodología.
                 </p>
-            </div>
-        </section>
-
-        <!-- Interests Section -->
-        <section class="interests">
-            <h2 class="section-title-professional">Mis Intereses</h2>
-            <div class="cards-grid" style="grid-template-columns: repeat(3, 1fr);">
-                <div class="card-professional">
-                    <div class="card-header-professional">
-                        <div class="icon-circle-professional">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <line x1="18" y1="20" x2="18" y2="10"/>
-                                <line x1="12" y1="20" x2="12" y2="4"/>
-                                <line x1="6" y1="20" x2="6" y2="14"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title-professional">Ciencia de Datos y Estadística</h3>
-                    </div>
-                    <p class="card-description-professional">
-                        Me fascina utilizar la estadística para tomar decisiones 
-                        informadas en los datos. La combinación de matemáticas, programación y pensamiento analítico me permite 
-                        resolver problemas complejos de manera creativa.
-                    </p>
-                </div>
-
-                <div class="card-professional">
-                    <div class="card-header-professional">
-                        <div class="icon-circle-professional">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
-                                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title-professional">Emprendimiento</h3>
-                    </div>
-                    <p class="card-description-professional">
-                        A través de mi consultoría de digitalización, ayudo a 
-                        empresas a optimizar sus procesos mediante el desarrollo de bases de datos, Analytics y Machine Learning. 
-                        Mi mision es traer la mas alta tecnologia a las manos de las pequeñas y medianas empresas.
-                    </p>
-                </div>
-
-                <div class="card-professional">
-                    <div class="card-header-professional">
-                        <div class="icon-circle-professional">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="12" y1="8" x2="12" y2="16"/>
-                                <line x1="8" y1="12" x2="16" y2="12"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title-professional">Volleyball</h3>
-                    </div>
-                    <p class="card-description-professional">
-                        Como jugador y entrenador, el volleyball me ha enseñado sobre trabajo en equipo, liderazgo, 
-                        perseverancia y la importancia de pensar estrategicamente y a largo plazo. 
-                        No seria quien soy sin mi experiencia jugando volleyball.
-                    </p>
-                </div>
-
-                <div class="card-professional">
-                    <div class="card-header-professional">
-                        <div class="icon-circle-professional">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M9 18V5l12-2v13"/>
-                                <circle cx="6" cy="18" r="3"/>
-                                <circle cx="18" cy="16" r="3"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title-professional">Música</h3>
-                    </div>
-                    <p class="card-description-professional">
-                        La música es mi forma de expresión creativa. Escribo poesias e historias desde que tengo memoria,
-                        la musica funciona como una forma de darle voz a las cosas que no digo en voz alta en mi dia a dia.
-                        Estoy en proceso de publicar mi primer álbum conceptual.
-                    </p>
-                </div>
-                <div class="card-professional">
-                    <div class="card-header-professional">
-                        <div class="icon-circle-professional">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 21h18"/>
-                                <path d="M3 7v1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7m0 1a3 3 0 0 0 6 0V7"/>
-                                <path d="M3 7h18v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/>
-                                <path d="M9 3h6v4H9z"/>
-                            </svg>
-                        </div>
-                        <h3 class="card-title-professional">Enseñanza</h3>
-                    </div>
-                    <p class="card-description-professional">
-                        La educacion ha sido una aspiracion mia desde que soy pequeño, una vez terminada mi maestria,
-                        quiero enseñar en universidades de prestigio. Aspiro a poder impactar de forma positiva a mis estudiantes.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Strengths Section -->
-        <section class="strengths">
-            <h2 class="section-title-professional">Mis Fortalezas</h2>
-            <div class="container">
-                <ul class="goals-list" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-md); list-style: none; padding: 0;">
-                    <li class="goal-item">
-                        <div class="icon-circle-professional" style="margin-right: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-                            </svg>
-                        </div>
-                        <div class="goal-content">
-                            <h4>Adaptabilidad</h4>
-                            <p>
-                                No le tengo miedo a la incomodidad e incertidumbre. Siempre estoy en busca de nuevos retos que me pongan
-                                a prueba. Quedarme mucho tiempo en mi zona de confort no es una opcion para mi.
-                            </p>
-                        </div>
+                <ul class="resources-list">
+                    <li>
+                        <a href="Syllabus - Intro al Desarrollo Web y Prompt Engineering .pdf" class="resource-link" target="_blank">
+                            <div>
+                                <div class="resource-title">Syllabus</div>
+                                <div class="resource-desc">Programa completo del curso y criterios de evaluación</div>
+                            </div>
+                            <span class="arrow">→</span>
+                        </a>
                     </li>
-
-                    <li class="goal-item">
-                        <div class="icon-circle-professional" style="margin-right: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                                <line x1="3" y1="9" x2="21" y2="9"/>
-                                <line x1="9" y1="21" x2="9" y2="9"/>
-                            </svg>
+                    <li>
+                        <div style="padding: 1rem 0; border-bottom: 1px solid #e9ecef;">
+                            <div class="resource-title" style="margin-bottom: 0.5rem;">Ejemplos del Instructor</div>
+                            <div class="resource-desc">Proyectos de referencia por nivel educativo</div>
                         </div>
-                        <div class="goal-content">
-                            <h4>Habilidad Logica y Matemática</h4>
-                            <p>
-                                Las matemáticas son mi lenguaje natural para resolver problemas. 
-                                Trato de ver todos los problemas que me enfrento desde una perspectiva logica, 
-                                enfrentarlos con la cabeza fria y de forma metodica y calculada.
-                            </p>
-                        </div>
+                        <ul style="list-style: none; padding-left: 1.5rem; margin-top: 0.5rem;">
+                            <li style="padding: 0.75rem 0; border-bottom: 1px solid #e9ecef;">
+                                <a href="jose-perez-portfolio.html" class="resource-link">
+                                    <div>
+                                        <div class="resource-title" style="font-size: 1rem;">Proyección Profesional</div>
+                                        <div class="resource-desc">Ejemplo para 4° y 5° Secundaria</div>
+                                    </div>
+                                    <span class="arrow">→</span>
+                                </a>
+                            </li>
+                            <li style="padding: 0.75rem 0; border-bottom: none;">
+                                <a href="#" class="resource-link disabled">
+                                    <div>
+                                        <div class="resource-title" style="font-size: 1rem;">Más ejemplos próximamente</div>
+                                        <div class="resource-desc">En desarrollo</div>
+                                    </div>
+                                    <span class="arrow">→</span>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-
-                    <li class="goal-item">
-                        <div class="icon-circle-professional" style="margin-right: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"/>
-                            </svg>
-                        </div>
-                        <div class="goal-content">
-                            <h4>Comunicación Escrita y Oral</h4>
-                            <p>
-                                Tengo la capacidad de expresar ideas complejas de manera clara y persuasiva. 
-                                Me encanta poder explicar las cosas que me apacionan a otros.
-                            </p>
-                        </div>
-                    </li>
-
-                    <li class="goal-item">
-                        <div class="icon-circle-professional" style="margin-right: 1rem;">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="16 12 12 8 8 12"/>
-                                <line x1="12" y1="16" x2="12" y2="8"/>
-                            </svg>
-                        </div>
-                        <div class="goal-content">
-                            <h4>Ambicion</h4>
-                            <p>
-                                Me encantan los retos porque representan oportunidades de crecimiento. En lugar de evitar 
-                                problemas difíciles, los busco activamente. Aspiro a la excelencia en todo lo que hago, no destacar es como no haber hecho nada.
-                            </p>
-                        </div>
+                    <li>
+                        <a href="#" class="resource-link disabled">
+                            <div>
+                                <div class="resource-title">Calendario y Entregables</div>
+                                <div class="resource-desc">Fechas importantes y cronograma de entregas</div>
+                            </div>
+                            <span class="arrow">→</span>
+                        </a>
                     </li>
                 </ul>
             </div>
-        </section>
 
-        <!-- Vision Section -->
-        <section class="vision">
-            <div class="info-box-professional">
-                <h3 class="text-center" style="color: #0f172a; margin-bottom: 1rem;">Mi Visión de Futuro</h3>
-                <p style="text-align: center; font-size: 1.1rem; color: #334155; line-height: 1.7;">
-                    Me proyecto como un profesional que une la excelencia académica con el impacto social. A través de mi 
-                    trabajo en consultoría, educación y emprendimiento, busco crear un legado que inspire a 
-                    futuras generaciones a perseguir sus pasiones con determinación y propósito.
-                </p>
+            <aside class="sidebar">
+                <div class="sidebar-section">
+                    <h3>Estructura del Curso</h3>
+                    <ul class="timeline">
+                        <li>
+                            <strong>Semanas 1-3</strong>
+                            Fundamentos de HTML y CSS
+                        </li>
+                        <li>
+                            <strong>Semana 4</strong>
+                            Introducción al Prompt Engineering
+                        </li>
+                        <li>
+                            <strong>Semanas 5-7</strong>
+                            Desarrollo del proyecto con IA
+                        </li>
+                        <li>
+                            <strong>Semana 8</strong>
+                            Presentación final
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3>Evaluación</h3>
+                    <ul class="timeline">
+                        <li>Proyecto final: 40%</li>
+                        <li>Ejercicios de clase: 20%</li>
+                        <li>Participación: 15%</li>
+                        <li>Presentación final: 15%</li>
+                        <li>Propuesta de proyecto: 10%</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+
+        <div class="projects-section">
+            <h2>Proyectos Finales por Nivel</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>1° Secundaria</h3>
+                    <div class="project-name">"Qué he aprendido este año"</div>
+                    <p>Página reflexiva sobre los aprendizajes más significativos del año, dentro y fuera del colegio. Una página con énfasis en reflexión y expresión personal.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>2° y 3° Secundaria</h3>
+                    <div class="project-name">"Área de interés"</div>
+                    <p>Investigación y presentación de un tema de interés personal o académico. Tres páginas con énfasis en calidad del contenido y estructura de información.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>4° y 5° Secundaria</h3>
+                    <div class="project-name">"Proyección profesional"</div>
+                    <p>Carta de presentación con investigación sobre área profesional y plan a 1, 5, 10 años. Cinco páginas con énfasis en pensamiento estratégico.</p>
+                </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 IEGP Santa Maria de los Andes|Educacion para el Trabajo| 
-        Modulo 1: Intro al Desarrollo Web y Prompt Engineering|Demo proyecto final: José Pérez</p>
-    </footer>
+        <footer>
+            <p>IEGP Santa Maria de los Andes | Educación para el Trabajo | Módulo 1: Introducción al Desarrollo Web y Prompt Engineering</p>
+        </footer>
+    </div>
 </body>
 </html>
-
