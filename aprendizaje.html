@@ -38,21 +38,13 @@
 
     <div class="shell">
 
-      <div class="hero__badge">HTML + CSS • Sin JS</div>
-
       <h1 class="hero__title">
 
         Lo más valioso que aprendí este año:<br />
 
-        <span class="grad">Aprender a aprender</span>
+        <span class="grad">Comp aprender de manera efectiva</span>
 
       </h1>
-
-      <p class="hero__tag">
-
-        Anki + Bloques de tiempo + Trabajo estructurado
-
-      </p>
 
       <nav class="tabs" aria-label="Secciones">
 
@@ -78,25 +70,23 @@
 
     <section id="introduccion" class="section intro">
 
+      <h2 class="kicker">1) Introducción</h2>
+
       <div class="grid two">
 
         <div class="card glass">
-
-          <h2 class="kicker">1) Introducción</h2>
 
           <h3 class="section__title">Un sistema que me dio calma y progreso</h3>
 
           <p>
 
-            Este año dejé de “estudiar a ciegas”. Con <strong>tarjetas Anki</strong>, <strong>bloques de tiempo</strong> y una
+            Este año dejé de "estudiar a ciegas". Con <strong>tarjetas Anki</strong>, <strong>bloques de tiempo</strong> y el
 
-            <strong>rutina simple</strong>, convertí temas difíciles en pasos alcanzables. Este sitio muestra el
+            <strong>aprendizaje basado en proyectos</strong>, convertí temas difíciles en pasos alcanzables. Este sitio muestra el
 
             <em>diseño</em> y la <em>estrategia</em> detrás de ese avance.
 
           </p>
-
-          <p class="note">Meta de la sección: voz propia + propósito (Reflexión 40%).</p>
 
         </div>
 
@@ -128,9 +118,9 @@
 
           <div class="stat">
 
-            <span class="stat__num">∞</span>
+            <span class="stat__num">7</span>
 
-            <span class="stat__label">Repetible</span>
+            <span class="stat__label">Pasos ABP</span>
 
           </div>
 
@@ -154,7 +144,7 @@
 
           <h3 class="section__title">2.1 Anki y repetición espaciada</h3>
 
-          <p class="muted">Memoria duradera por <em>espaciado</em> + <em>recuperación</em>.</p>
+          <p class="muted">Memoria duradera, estudio ligero pero constante</p>
 
         </header>
 
@@ -200,7 +190,7 @@
 
               <div class="face back">
 
-                <div>Porque obliga a reconstruir la respuesta desde memoria, reforzando rutas neuronales (testing effect).</div>
+                <div>Porque obliga a reconstruir la respuesta desde memoria, reforzando rutas neuronales.</div>
 
                 <div class="grade"><span>De nuevo</span><span>Difícil</span><span>Bien</span><span>Fácil</span></div>
 
@@ -282,15 +272,15 @@
 
           <ul class="list">
 
-            <li><strong>Retención a largo plazo</strong> — Mejor que el “cramming”. <span class="tags"><span class="tag">Academic Affairs</span><span class="tag">Psychology</span><span class="tag">PMC</span></span></li>
+            <li><strong>Retención a largo plazo</strong> — Mejor que el “cramming”.</li>
 
-            <li><strong>Uso eficiente del tiempo</strong> — Repasos con más “tirón” de memoria. <span class="tags"><span class="tag">learningtree.com</span><span class="tag">BCU</span></span></li>
+            <li><strong>Uso eficiente del tiempo</strong> — Repasos con más “tirón” de memoria.</li>
 
-            <li><strong>Reducción del olvido</strong> — Combate la curva del olvido. <span class="tags"><span class="tag">Whatfix</span></span></li>
+            <li><strong>Reducción del olvido</strong> — Combate la curva del olvido.</li>
 
-            <li><strong>Transferencia a nuevos contextos</strong> — Mejora aplicación en otras situaciones. <span class="tags"><span class="tag">PMC</span></span></li>
+            <li><strong>Transferencia a nuevos contextos</strong> — Mejora aplicación en otras situaciones.</li>
 
-            <li><strong>Planificación y hábito</strong> — Ritmo sostenible y organizado. <span class="tags"><span class="tag">kpu.ca</span></span></li>
+            <li><strong>Planificación y hábito</strong> — Ritmo sostenible y organizado.</li>
 
           </ul>
 
@@ -322,7 +312,7 @@
 
         <div class="board">
 
-          <!-- Simplified schedule: 3 days, 9–17 -->
+          <!-- 5-day workweek schedule: Mon–Fri, 9–17 -->
 
           <div class="col">
 
@@ -332,7 +322,22 @@
 
               <div class="block t0900 t1200 deep">Deep Work</div>
 
-              <div class="block t1300 t1700">Revisión / Aprender</div>
+              <div class="block t1300 t1500 learning">Propuesta de proyecto</div>
+
+            </div>
+
+          </div>
+
+          <div class="col">
+
+            <h4>Martes</h4>
+
+            <div class="lane">
+
+              <div class="block t0900 t1030 planning">Planificación</div>
+
+              <div class="block t1100 t1300 project">Proyecto</div>
+
 
             </div>
 
@@ -344,9 +349,21 @@
 
             <div class="lane">
 
-              <div class="block t0900 t1200">Planificación y lectura</div>
+              <div class="block t0900 t1200 reading">Preparacion de clase</div>
 
-              <div class="block t1300 t1700 deep">Proyecto</div>
+            </div>
+
+          </div>
+
+          <div class="col">
+
+            <h4>Jueves</h4>
+
+            <div class="lane">
+
+              <div class="block t0900 t1000 review">Repaso Anki</div>
+
+              <div class="block t1030 t1230 deep">Deep Work</div>
 
             </div>
 
@@ -358,9 +375,10 @@
 
             <div class="lane">
 
-              <div class="block t0900 t1200">Revisión / Aprender</div>
+              <div class="block t0900 t1100 review">Revisión Semanal</div>
 
-              <div class="block t1300 t1700">Entrega / Presentación</div>
+              <div class="block t1130 t1400 project">Examen Final</div>
+
 
             </div>
 
@@ -384,15 +402,15 @@
 
           <ul class="list">
 
-            <li><strong>Organización y previsión</strong> — Bloques claros por tarea. <span class="tags"><span class="tag">Indeed</span><span class="tag">Clockwise</span></span></li>
+            <li><strong>Organización y previsión</strong> — Bloques claros por tarea.</li>
 
-            <li><strong>Más trabajo profundo</strong> — Menos distracciones y cambios de contexto. <span class="tags"><span class="tag">Clockwise</span><span class="tag">SRC</span></span></li>
+            <li><strong>Más trabajo profundo</strong> — Menos distracciones y cambios de contexto.</li>
 
-            <li><strong>Menos procrastinación</strong> — El bloque ya está reservado. <span class="tags"><span class="tag">Clockwise</span></span></li>
+            <li><strong>Menos procrastinación</strong> — El bloque ya está reservado.</li>
 
-            <li><strong>Protege tu agenda</strong> — Límites entre tareas y descanso. <span class="tags"><span class="tag">Monitask</span></span></li>
+            <li><strong>Protege tu agenda</strong> — Límites entre tareas y descanso.</li>
 
-            <li><strong>Tiempo según prioridades/energía</strong> — No domina lo urgente. <span class="tags"><span class="tag">World of Work Project</span></span></li>
+            <li><strong>Tiempo según prioridades/energía</strong> — No domina lo urgente.</li>
 
           </ul>
 
@@ -430,71 +448,111 @@
 
         </div>
 
-        <div class="grid two">
+        <div class="abp-layout">
 
-          <article class="card">
+          <!-- LEFT: LINEAR FLOW -->
 
-            <h4 class="section__title">Ventajas clave</h4>
+          <div class="abp-flow">
 
-            <ul class="list">
+            <div class="abp-step abp-s1">
 
-              <li><strong>Aprendizaje significativo</strong> — Construyes algo real.</li>
+              <span class="abp-tag">1 · Disparador</span>
 
-              <li><strong>Pensamiento crítico</strong> — Evalúas y mejoras salidas de IA.</li>
+              <div>
 
-              <li><strong>Autonomía y creatividad</strong> — Voz e intereses propios.</li>
+                <h4>Desafío auténtico</h4>
 
-              <li><strong>Responsabilidad digital</strong> — Atribución y verificación.</li>
+                <p>Contexto real + pregunta guía clara.</p>
 
-              <li><strong>Preparación para el futuro</strong> — Técnica + comunicación + ética.</li>
+              </div>
 
-            </ul>
+            </div>
 
-          </article>
+            <div class="abp-step abp-s2">
 
-          <article class="card">
+              <span class="abp-tag">2 · Investigación</span>
 
-            <h4 class="section__title">Pasos del proyecto</h4>
+              <div>
 
-            <ol class="tight">
+                <h4>Indagación guiada</h4>
 
-              <li>Definir la meta</li>
+                <p>Fuentes válidas, entrevistas, datos.</p>
 
-              <li>Explorar y leer código</li>
+              </div>
 
-              <li>Co-crear con IA</li>
+            </div>
 
-              <li>Construir el sitio</li>
+            <div class="abp-step abp-s3">
 
-              <li>Publicar y reflexionar</li>
+              <span class="abp-tag">3 · Plan</span>
 
-            </ol>
+              <div>
 
-          </article>
+                <h4>Diseño del proyecto</h4>
 
-        </div>
+                <p>Tareas, roles, riesgos, criterios.</p>
 
-        <div class="card">
+              </div>
 
-          <h4 class="section__title">PBL vs. Ver tutoriales</h4>
+            </div>
 
-          <table class="table">
+            <div class="abp-step abp-s4">
 
-            <thead><tr><th>Aspecto</th><th>PBL</th><th>Ver tutoriales</th></tr></thead>
+              <span class="abp-tag">4 · Prototipo</span>
 
-            <tbody>
+              <div>
 
-              <tr><td>Propósito</td><td>Crear un producto propio</td><td>Repetir pasos de otro</td></tr>
+                <h4>Construcción temprana</h4>
 
-              <tr><td>Rol del estudiante</td><td>Diseñador activo y crítico</td><td>Observador pasivo</td></tr>
+                <p>Bocetos/maquetas para feedback.</p>
 
-              <tr><td>Resultado</td><td>Proyecto auténtico con voz personal</td><td>Copia funcional sin reflexión</td></tr>
+              </div>
 
-              <tr><td>Habilidad</td><td>Interpretar, decidir y crear</td><td>Ejecutar instrucciones</td></tr>
+            </div>
 
-            </tbody>
+            <div class="abp-step abp-s5">
 
-          </table>
+              <span class="abp-tag">5 · Iteración</span>
+
+              <div>
+
+                <h4>Mejora con evidencia</h4>
+
+                <p>Rúbricas, pruebas, revisiones.</p>
+
+              </div>
+
+            </div>
+
+            <div class="abp-step abp-s6">
+
+              <span class="abp-tag">6 · Entrega</span>
+
+              <div>
+
+                <h4>Producto público</h4>
+
+                <p>Presentación a audiencia real.</p>
+
+              </div>
+
+            </div>
+
+            <div class="abp-step abp-s7">
+
+              <span class="abp-tag">7 · Reflexión</span>
+
+              <div>
+
+                <h4>Meta y próximos pasos</h4>
+
+                <p>Qué aprendí, qué mejoraría.</p>
+
+              </div>
+
+            </div>
+
+          </div>
 
         </div>
 
@@ -510,43 +568,18 @@
 
     <section id="experiencia" class="section">
 
-      <div class="grid two">
+      <h2 class="kicker">3) Experiencia favorita</h2>
 
-        <div class="card">
+      <div class="card">
 
-          <h2 class="kicker">3) Experiencia favorita</h2>
+        <h3 class="section__title">Un nuevo mundo de posibilidades</h3>
 
-          <h3 class="section__title">De “no entiendo” a “puedo explicarlo” (Derivadas)</h3>
+        <p>
 
-          <p>
+          Aprender como ser efectivo manejando mi tiempo y maximizando la calidad de mis horas de trabajo y estudio 
+          me ha abierto muchas puertas a perseguir metas cada vez mas ambiciosas.
 
-            Dividí el tema en piezas pequeñas, las convertí en tarjetas y reservé un bloque diario de 40&nbsp;min.
-
-            Dos semanas después pude explicarlo sin mirar apuntes. La clave: un sistema que puedo repetir en cualquier tema.
-
-          </p>
-
-        </div>
-
-        <figure class="flow card">
-
-          <figcaption>Flujo: Anki → Bloques → Quiz rápido</figcaption>
-
-          <div class="flow__row">
-
-            <div class="pill">Anki</div>
-
-            <div class="arrow">→</div>
-
-            <div class="pill">Bloques</div>
-
-            <div class="arrow">→</div>
-
-            <div class="pill">Quiz</div>
-
-          </div>
-
-        </figure>
+        </p>
 
       </div>
 
@@ -596,93 +629,13 @@
 
     </section>
 
-    <!-- ====== MINI GUÍA ====== -->
-
-    <section id="mini-guia" class="section">
-
-      <h2 class="kicker">5) Mini-guía práctica</h2>
-
-      <div class="grid three">
-
-        <article class="card">
-
-          <h3 class="section__title">Anki (5 pasos)</h3>
-
-          <ol class="tight">
-
-            <li>Una idea por tarjeta</li>
-
-            <li>Pregunta → respuesta breve</li>
-
-            <li>15 min diarios</li>
-
-            <li>Explica con tus palabras</li>
-
-            <li>Fallar también entrena</li>
-
-          </ol>
-
-          <p class="muted small">Docs de Anki • SM-2/FSRS</p>
-
-        </article>
-
-        <article class="card">
-
-          <h3 class="section__title">Time-Blocking</h3>
-
-          <ol class="tight">
-
-            <li>Plan de día (10 min)</li>
-
-            <li>1 tarea por bloque</li>
-
-            <li>Micro-descansos</li>
-
-            <li>Cierre con ajustes</li>
-
-          </ol>
-
-          <p class="muted small">Enfoque sostenido &gt; multitarea</p>
-
-        </article>
-
-        <article class="card">
-
-          <h3 class="section__title">Rutina</h3>
-
-          <ol class="tight">
-
-            <li>Objetivo</li>
-
-            <li>Trabajo profundo</li>
-
-            <li>Mini-quiz</li>
-
-            <li>Próximo paso</li>
-
-          </ol>
-
-          <p class="muted small">Diseño simple, repetible</p>
-
-        </article>
-
-      </div>
-
-    </section>
-
   </main>
 
-  <footer class="footer">
-
-    <div class="shell">
-
-      <small>Referencias: PubMed • Docs de Anki • Cal Newport • PMC • © <span id="y"></span></small>
-
-    </div>
-
+  <footer>
+    <p>&copy; 2025 IEGP Santa Maria de los Andes|Educacion para el Trabajo| 
+    Modulo 1: Intro al Desarrollo Web y Prompt Engineering|Demo proyecto final: José Pérez</p>
   </footer>
 
-  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
 
 </body>
 
